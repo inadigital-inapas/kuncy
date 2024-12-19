@@ -1,0 +1,3 @@
+*.pem
+*.jwks.json
+jwks.json
