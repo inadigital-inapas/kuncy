@@ -74,7 +74,7 @@ func loadEd25519PemToJWK(pemBlock []byte, kid string) jwk.Key {
 	}
 }
 
-func loadECDSAPemToJWK(pemBlock []byte, kid string) jwk.Key {
+func loadECDSAPemToJWK(pemBlock []byte) jwk.Key {
 	block, _ := pem.Decode(pemBlock)
 	if block == nil {
 		panic("failed to decode PEM block")
@@ -97,11 +97,6 @@ func loadECDSAPemToJWK(pemBlock []byte, kid string) jwk.Key {
 			panic(err)
 		}
 
-		jwkKey.Set(jwk.AlgorithmKey, jwa.ECDH_ES_A256KW.String())
-		if kid != "" {
-			jwkKey.Set(jwk.KeyIDKey, kid)
-		}
-
 		return jwkKey
 	case PEMTYPE_PUBLIC_KEY:
 		key, err := x509.ParsePKIXPublicKey(block.Bytes)
@@ -117,11 +112,6 @@ func loadECDSAPemToJWK(pemBlock []byte, kid string) jwk.Key {
 		jwkKey, err := jwk.FromRaw(ecdsaPub)
 		if err != nil {
 			panic(err)
-		}
-
-		jwkKey.Set(jwk.AlgorithmKey, jwa.ECDH_ES_A256KW.String())
-		if kid != "" {
-			jwkKey.Set(jwk.KeyIDKey, kid)
 		}
 
 		return jwkKey

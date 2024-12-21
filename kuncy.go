@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/google/uuid"
+	"github.com/lestrrat-go/jwx/v2/jwa"
 	"github.com/lestrrat-go/jwx/v2/jwk"
 )
 
@@ -25,9 +26,9 @@ func main() {
 
 	kidSign := fmt.Sprintf("%X", sha256.Sum256([]byte(newKidSign.String())))
 
-	skSignPem, pkSignPem := genSigningV1()
-	testSignVerify(skSignPem, pkSignPem, kidSign)
-	writeSignToFile(skSignPem, pkSignPem)
+	skSignPem, pkSignPem := genECDSA()
+	testSignECDSA(skSignPem, pkSignPem, kidSign)
+	writeSignECDSAToFile(skSignPem, pkSignPem)
 
 	// test1()
 	fmt.Println("")
@@ -39,13 +40,20 @@ func main() {
 
 	kidEnc := fmt.Sprintf("%X", sha256.Sum256([]byte(newKidEnc.String())))
 
-	skEncPem, pkEncPem := genEncryptionV1()
-	testEncVerify(skEncPem, pkEncPem, kidEnc)
-	writeEncToFile(skEncPem, pkEncPem)
+	skEncPem, pkEncPem := genECDSA()
+	testEncECDSA(skEncPem, pkEncPem, kidEnc)
+	writeEncECDSAToFile(skEncPem, pkEncPem)
 
 	// print JWKS
-	jwkEnc := loadECDSAPemToJWK(skEncPem, kidEnc)
-	jwkSign := loadEd25519PemToJWK(pkSignPem, kidSign)
+	jwkEnc := loadECDSAPemToJWK(pkEncPem)
+	jwkEnc.Set(jwk.KeyIDKey, kidEnc)
+	jwkEnc.Set(jwk.KeyUsageKey, jwk.ForEncryption)
+	jwkEnc.Set(jwk.AlgorithmKey, jwa.ECDH_ES_A256KW.String())
+
+	jwkSign := loadECDSAPemToJWK(pkSignPem)
+	jwkSign.Set(jwk.KeyIDKey, kidSign)
+	jwkSign.Set(jwk.KeyUsageKey, jwk.ForSignature)
+	jwkSign.Set(jwk.AlgorithmKey, jwa.ES512.String())
 
 	jwks := jwk.NewSet()
 	jwks.AddKey(jwkEnc)
