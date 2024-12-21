@@ -136,4 +136,4 @@ This project is licensed under the Apache License 2.0. See the [`LICENSE`](LICEN
 
 ## Contact
 
-For inquiries or support, please contact **Rizki Auliya Rachmawati** or open an issue in this repository.
+For inquiries or support, please contact **@ghiyastfarisi** or open an issue in this repository.
