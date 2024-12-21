@@ -2,3 +2,5 @@
 *.jwks.json
 jwks.json
 kuncy
+dist/
+build/
