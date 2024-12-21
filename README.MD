@@ -16,30 +16,82 @@ Kuncy is a Go-based utility designed for generating, signing, and encrypting cry
 
 ## Installation
 
-1. **Download the prebuilt binary:**
+### Download the Binary
 
-   Visit the [Releases Page](https://github.com/inadigita-inapas/kuncy/releases) to download the latest version of Kuncy for your operating system.
+You can download the prebuilt binary from the [GitHub Releases Page](https://github.com/inadigita-inapas/kuncy/releases).
 
-   Example for Linux:
+#### Option 1: Using `curl`
 
-   ```
-   wget https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux-amd64.tar.gz
-   tar -xvzf kuncy-<version>-linux-amd64.tar.gz
-   ```
+For Linux:
 
-   Replace `<version>` with the version number of the release you want to download.
+[code]
+curl -L -o kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
+[/code]
 
-2. **Make the binary executable:**
+For macOS:
 
-   ```
-   chmod +x kuncy
-   ```
+[code]
+curl -L -o kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
+[/code]
 
-3. **Move the binary to your PATH (optional):**
+For Windows:
 
-   ```
-   sudo mv kuncy /usr/local/bin/
-   ```
+[code]
+curl -L -o kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
+[/code]
+
+#### Option 2: Using `wget`
+
+For Linux:
+
+[code]
+wget -O kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
+[/code]
+
+For macOS:
+
+[code]
+wget -O kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
+[/code]
+
+For Windows:
+
+[code]
+wget -O kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
+[/code]
+
+#### Option 3: Manual Download
+
+1. Visit the [GitHub Releases Page](https://github.com/inadigita-inapas/kuncy/releases).
+2. Download the appropriate binary for your operating system.
+3. Save it to your desired directory.
+
+---
+
+### Extract the Binary
+
+For Linux and macOS (tar.gz files):
+
+[code]
+tar -xvzf kuncy.tar.gz
+chmod +x kuncy
+[/code]
+
+For Windows (zip files):
+
+Use your preferred archive manager (e.g., WinRAR, 7-Zip) to extract the `kuncy.exe` file.
+
+---
+
+### Move the Binary (Optional)
+
+For Linux and macOS:
+
+[code]
+sudo mv kuncy /usr/local/bin/
+[/code]
+
+This allows you to run `kuncy` from anywhere on your system.
 
 ---
 
@@ -47,9 +99,9 @@ Kuncy is a Go-based utility designed for generating, signing, and encrypting cry
 
 Run the application to generate key pairs and manage JWKS:
 
-```
+[code]
 kuncy
-```
+[/code]
 
 By default, the application performs the following:
 
