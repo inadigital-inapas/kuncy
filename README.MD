@@ -24,41 +24,41 @@ You can download the prebuilt binary from the [GitHub Releases Page](https://git
 
 For Linux:
 
-[code]
+```
 curl -L -o kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
-[/code]
+```
 
 For macOS:
 
-[code]
+```
 curl -L -o kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
-[/code]
+```
 
 For Windows:
 
-[code]
+```
 curl -L -o kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
-[/code]
+```
 
 #### Option 2: Using `wget`
 
 For Linux:
 
-[code]
+```
 wget -O kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
-[/code]
+```
 
 For macOS:
 
-[code]
+```
 wget -O kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
-[/code]
+```
 
 For Windows:
 
-[code]
+```
 wget -O kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
-[/code]
+```
 
 #### Option 3: Manual Download
 
@@ -72,10 +72,10 @@ wget -O kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<v
 
 For Linux and macOS (tar.gz files):
 
-[code]
+```
 tar -xvzf kuncy.tar.gz
 chmod +x kuncy
-[/code]
+```
 
 For Windows (zip files):
 
@@ -87,9 +87,9 @@ Use your preferred archive manager (e.g., WinRAR, 7-Zip) to extract the `kuncy.e
 
 For Linux and macOS:
 
-[code]
+```
 sudo mv kuncy /usr/local/bin/
-[/code]
+```
 
 This allows you to run `kuncy` from anywhere on your system.
 
@@ -99,9 +99,9 @@ This allows you to run `kuncy` from anywhere on your system.
 
 Run the application to generate key pairs and manage JWKS:
 
-[code]
+```
 kuncy
-[/code]
+```
 
 By default, the application performs the following:
 
