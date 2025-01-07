@@ -83,24 +83,12 @@ Use your preferred archive manager (e.g., WinRAR, 7-Zip) to extract the `kuncy.e
 
 ---
 
-### Move the Binary (Optional)
-
-For Linux and macOS:
-
-```
-sudo mv kuncy /usr/local/bin/
-```
-
-This allows you to run `kuncy` from anywhere on your system.
-
----
-
 ## Usage
 
 Run the application to generate key pairs and manage JWKS:
 
 ```
-kuncy
+./kuncy
 ```
 
 By default, the application performs the following:
@@ -110,6 +98,40 @@ By default, the application performs the following:
 - Exports the generated JWKS to `jwks.json`.
 
 You can customize the behavior by modifying the source files if you build from source.
+
+### example output
+```
++++++++++++++++++++++++++++++++++
+Kuncy - INApas key pair generator
++++++++++++++++++++++++++++++++++
+
++ test signing in JWT format: PASSED
++ + output: eyJhbGciOiJFUzUxMiIsImtpZCI6IkFGRTlFRDIxQkVERUQ0NENGMUYxNTg5RjlEOTY3RUM4RTY4MTczNUU3NzQyNEUyRDkyMTg3QzU0OThDOTZCQzIiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE3MzYyMTkzMzQsImlhdCI6MTczNjIxODQzNCwianRpIjoiNDgzQTU5MjVCMEVBQjNEMUJDRUM5NTU1MzM2NTM1M0FBOUEwNjlBNzAzNUZFQjczOEJFMjMzMTEzNTc5QjBEMSIsInN1YiI6IklOQVBBUzk5SUQiLCJ0eXBlIjoiYXNzZXJ0aW9uIn0.ALbQ982JQPYs2ylfs8CJb9R_W9tw-e4PJWngfKGZEjGA6hc0-P2u_MTBTCaeFxTZOSvrKR6S0Kh7fTbynU49otGYAaW71foc3pgbHKVJSaEiUGGNCbXwoNWN2BJfp2IXQ564-nptK0rvJtwgL5oG12AIsPNYesB5DXF1YbaQgrxGIip6
+
++ test parsing signed JWT: PASSED
++ + output: map[exp:2025-01-07 03:08:54 +0000 UTC iat:2025-01-07 02:53:54 +0000 UTC jti:483A5925B0EAB3D1BCEC95553365353AA9A069A7035FEB738BE233113579B0D1 sub:INAPAS99ID type:assertion] err: <nil>
+
++ test encryption in JWT format: PASSED
++ + output: eyJhbGciOiJFQ0RILUVTK0EyNTZLVyIsImVuYyI6IkEyNTZHQ00iLCJlcGsiOnsiY3J2IjoiUC01MjEiLCJrdHkiOiJFQyIsIngiOiJBY3U1YXcxcjBIa2xQaEl2QTlxT1ZtQ0c5VHRKd1FGT25KR0tfSTdxWllVZFdoU0hkTTdNMDhkc19ZSGV6WVFzMGZ3SGhnZHFXWkxYSWQ4bmZrUklNSElZIiwieSI6IkFlVktOS2ZKaDhoWnVMU0M1dEd3eHJJSGx2TnJsaVFZSmtyWlk2NmN0cWhLX196cVVqYV9WYVZHbUctZkllTF9ZN0Qza1lYdDJrampMR3FMVDNrQTRGRlcifSwia2lkIjoiNDQzNTRFRTk5NzBDN0QzNTNBMEQ5MjlFNjAwMTlGQTM3MUFDRjc3OUZBNUQ4OTBERTJGMUU4QzAwQkE3NDgzMiJ9.JS43pnFL4UGSw89esMyBRE3cwLK_etz05I7RGbzNOey23M_FiX0Kdg.nSvSyJ1mGFpMPzeh.GDjKOAsLbXbF7qnSeaLXBLqAPwn8Q6nTgu4-DsVJxeybVyqAwmOweuITqHa82dNINKHXJX7vgoo02VwRJr04kmPEpA.Zu6Luxhrig7hwlLkp1LKfA
+
++ test decrypt chipertex of JWE: PASSED
++ + output: {"string":"Fulan","nik":"1000200030004000","inapasID":"INAPAS99ID"} err: <nil>
+
++++++++++++++ EXIT +++++++++++++
+```
+
+### file generated
+```
+- enc_privkey.pem
+- enc_pubkey.pem
+- jwks.json
+- signing_privkey.pem
+- signing_pubkey.pem
+```
+
+The file `jwks.json` contains both of signing and encryption public key in JWKS format. And it should be registered in INApas.
+
+You have to keep the `enc_privkey.pem` and `signing_privkey.pem` securely. As the encryption privkey is used to decrypt the id_token payload. and signing privkey is to sign a jwt assertion for oidc exchange token.   
 
 ---
 
