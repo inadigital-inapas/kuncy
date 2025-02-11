@@ -1,4 +1,4 @@
-module github.com/inadigita-inapas/kuncy
+module github.com/inadigital-inapas/kuncy
 
 go 1.23.2
 
