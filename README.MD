@@ -18,26 +18,26 @@ Kuncy is a Go-based utility designed for generating, signing, and encrypting cry
 
 ### Download the Binary
 
-You can download the prebuilt binary from the [GitHub Releases Page](https://github.com/inadigita-inapas/kuncy/releases).
+You can download the prebuilt binary from the [GitHub Releases Page](https://github.com/inadigital-inapas/kuncy/releases).
 
 #### Option 1: Using `curl`
 
 For Linux:
 
 ```
-curl -L -o kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
+curl -L -o kuncy.tar.gz https://github.com/inadigital-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
 ```
 
 For macOS:
 
 ```
-curl -L -o kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
+curl -L -o kuncy.tar.gz https://github.com/inadigital-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
 ```
 
 For Windows:
 
 ```
-curl -L -o kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
+curl -L -o kuncy.zip https://github.com/inadigital-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
 ```
 
 #### Option 2: Using `wget`
@@ -45,24 +45,24 @@ curl -L -o kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download
 For Linux:
 
 ```
-wget -O kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
+wget -O kuncy.tar.gz https://github.com/inadigital-inapas/kuncy/releases/download/<version>/kuncy-<version>-linux.tar.gz
 ```
 
 For macOS:
 
 ```
-wget -O kuncy.tar.gz https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
+wget -O kuncy.tar.gz https://github.com/inadigital-inapas/kuncy/releases/download/<version>/kuncy-<version>-darwin.tar.gz
 ```
 
 For Windows:
 
 ```
-wget -O kuncy.zip https://github.com/inadigita-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
+wget -O kuncy.zip https://github.com/inadigital-inapas/kuncy/releases/download/<version>/kuncy-<version>-windows.zip
 ```
 
 #### Option 3: Manual Download
 
-1. Visit the [GitHub Releases Page](https://github.com/inadigita-inapas/kuncy/releases).
+1. Visit the [GitHub Releases Page](https://github.com/inadigital-inapas/kuncy/releases).
 2. Download the appropriate binary for your operating system.
 3. Save it to your desired directory.
 
